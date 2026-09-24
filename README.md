@@ -1,4 +1,4 @@
-# 📚 Smart Librarian — AI cu RAG + Tool Completion
+# Smart Librarian 
 
 Chatbot care recomandă cărți pe baza intereselor utilizatorului, folosind
 **RAG** (căutare semantică într-un vector store Qdrant local) + **OpenAI GPT**,
