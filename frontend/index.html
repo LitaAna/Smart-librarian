@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Smart Librarian</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/static/style.css?v=3" />
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <a class="brand" href="/" aria-label="Smart Librarian">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none">
+          <path
+            d="M8 11.5c6.4-2 11.7-.9 16 3.1v24c-4.3-4-9.6-5.1-16-3.1v-24Z"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <path
+            d="M40 11.5c-6.4-2-11.7-.9-16 3.1v24c4.3-4 9.6-5.1 16-3.1v-24Z"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+        </svg>
+      </span>
+
+      <span>Smart Librarian</span>
+    </a>
+
+    <div class="header-actions">
+
+      <div class="status-pill" id="statusStamp">
+        <span class="dot"></span>
+        connected
+      </div>
+
+      <div class="profile-wrap">
+
+        <button
+          class="profile-button"
+          id="profileButton"
+          aria-expanded="false"
+          aria-controls="profileMenu"
+        >
+          YOU
+        </button>
+
+        <div
+          class="profile-menu"
+          id="profileMenu"
+          hidden
+        >
+          <div class="profile-menu-title">
+            Account
+          </div>
+
+          <a href="/books">
+            Manage books
+          </a>
+
+          <p>
+            Access is protected with an administrator username and password.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-copy">
+
+      <p class="hero-kicker">
+        AI-powered book recommendations
+      </p>
+
+      <h1>
+        Find your next perfect book
+      </h1>
+
+      <p>
+        Describe a theme, mood, or idea you're interested in,
+        and Smart Librarian will recommend a book based on
+        the indexed collection.
+      </p>
+
+    </div>
+
+
+    <div class="book-illustration" aria-hidden="true">
+
+      <div class="plant">
+        <span></span>
+        <span></span>
+        <span></span>
+        <i></i>
+      </div>
+
+      <div class="vase"></div>
+
+      <div class="books-standing">
+        <b class="book b1"></b>
+        <b class="book b2"></b>
+        <b class="book b3"></b>
+        <b class="book b4"></b>
+        <b class="book b5"></b>
+        <b class="book b6"></b>
+      </div>
+
+      <div class="books-stack">
+        <b></b>
+        <b></b>
+        <b></b>
+        <b></b>
+      </div>
+
+      <div class="shelf-line"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MAIN -->
+  <main class="workspace">
+
+    <!-- CHAT -->
+    <section class="chat-panel">
+
+      <div
+        class="messages"
+        id="messages"
+      >
+
+        <div class="message assistant-message">
+
+          <div class="message-label">
+            Librarian
+          </div>
+
+          <p>
+            Hi! Tell me what kind of book you're looking for.
+            You can mention a theme, mood, or type of story.
+            For example:
+            <em>"I want a book about friendship and magic."</em>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <form
+        class="composer"
+        id="composer"
+      >
+
+        <button
+          type="button"
+          class="mic-btn"
+          id="micBtn"
+          title="Speak"
+          aria-label="Speak"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+          >
+            <rect
+              x="9"
+              y="3"
+              width="6"
+              height="11"
+              rx="3"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+
+            <path
+              d="M5 11a7 7 0 0 0 14 0M12 18v3"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="What would you like to read?"
+          autocomplete="off"
+        />
+
+
+        <button
+          type="submit"
+          class="send-btn"
+          id="sendBtn"
+        >
+          Send
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- RECOMMENDATION -->
+    <aside class="recommendation-panel">
+
+      <div
+        class="recommendation-empty"
+        id="shelfEmpty"
+      >
+
+        <div class="empty-icon">
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M8 11.5c6.4-2 11.7-.9 16 3.1v24c-4.3-4-9.6-5.1-16-3.1v-24ZM40 11.5c-6.4-2-11.7-.9-16 3.1v24c4.3-4 9.6-5.1 16-3.1v-24Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+          </svg>
+
+        </div>
+
+        <h2>Your recommendation</h2>
+
+        <p>
+          The selected book and its full summary will appear here.
+        </p>
+
+      </div>
+
+
+      <article
+        class="book-card"
+        id="bookCard"
+        hidden
+      >
+
+        <div class="book-card-topline">
+          Recommended book
+        </div>
+
+        <h2 id="bookTitle">—</h2>
+
+
+        <div
+          class="cover-area"
+          id="coverArea"
+          hidden
+        >
+          <img
+            id="bookCover"
+            alt="Book cover"
+          />
+        </div>
+
+        <button
+          type="button"
+          class="cover-btn"
+          id="coverBtn"
+        >
+          <span>Generate book cover</span>
+        </button>
+
+
+        <div class="book-divider"></div>
+
+
+        <div class="summary-label">
+          Full summary
+        </div>
+
+
+        <div class="summary-scroll">
+          <p id="bookSummary"></p>
+        </div>
+
+
+        <button
+          type="button"
+          class="listen-btn"
+          id="listenBtn"
+          title="Listen to summary"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M4 9v6h4l5 4V5L8 9H4Z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+          <span>
+            Listen to summary
+          </span>
+
+        </button>
+
+      </article>
+
+    </aside>
+
+  </main>
+
+</div>
+
+
+<audio
+  id="ttsAudio"
+  preload="none"
+></audio>
+
+
+<script
+  src="/static/app.js?v=3"
+  defer
+></script>
+
+</body>
+</html>

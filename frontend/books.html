@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biblioteca mea</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/books.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Administrare bibliotecă</h1>
+      <p>Vezi, adaugă, modifică sau șterge cărțile folosite de chatbot.</p>
+    </div>
+    <a class="back" href="/">Înapoi la chatbot</a>
+  </header>
+
+  <main>
+    <section class="panel form-panel">
+      <h2 id="form-title">Adaugă o carte</h2>
+      <form id="book-form">
+        <input type="hidden" id="original-title" />
+        <label for="title">Titlu</label>
+        <input id="title" maxlength="200" required placeholder="Ex.: Dune" />
+
+        <label for="summary">Rezumat</label>
+        <textarea id="summary" minlength="10" required placeholder="Scrie un rezumat suficient de detaliat pentru căutarea semantică..."></textarea>
+
+        <div class="actions">
+          <button type="submit" id="save-button">Adaugă și indexează</button>
+          <button type="button" id="cancel-button" class="secondary hidden">Anulează editarea</button>
+        </div>
+      </form>
+      <p id="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <div class="list-header">
+        <h2>Cărți indexate <span id="count"></span></h2>
+        <button id="refresh-button" class="secondary">Reîmprospătează</button>
+      </div>
+      <input id="search" placeholder="Caută după titlu sau rezumat..." />
+      <div id="books-list" class="books-list"></div>
+    </section>
+  </main>
+
+  <script src="/static/books.js"></script>
+</body>
+</html>
