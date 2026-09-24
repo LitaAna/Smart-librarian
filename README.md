@@ -10,8 +10,6 @@ care rulează local în browser.
 
 ---
 
-> **Notă de compatibilitate:** proiectul folosește Qdrant în mod local, în loc de ChromaDB, pentru compatibilitate cu Python 3.13. Cerința permite folosirea unei alte baze vectoriale decât OpenAI Vector Store.
-
 ## 1. Arhitectură & flow (partea importantă de înțeles)
 
 ```
