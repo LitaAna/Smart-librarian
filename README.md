@@ -10,7 +10,7 @@ care rulează local în browser.
 
 ---
 
-## 1. Arhitectură & flow (partea importantă de înțeles)
+## 1. Arhitectură & flow 
 
 ```
                          ┌─────────────────────────┐
