@@ -111,10 +111,6 @@ smart-librarian/
 
 ## 3. Instalare și rulare
 
-Necesită Python 3.10+ și o cheie API OpenAI validă (cu credit disponibil
-pentru chat, embeddings, TTS/STT/imagini dacă vrei să testezi și acele
-funcții opționale).
-
 ```bash
 # 1. Creează un mediu virtual
 py -m venv .venv
@@ -150,11 +146,6 @@ se întâmplă o singură dată, apoi doar reutilizează colecția existentă.
 - „Vreau o carte despre libertate și control social.”
 - „Ce-mi recomanzi dacă iubesc poveștile fantastice?”
 - „Ce este 1984?”
-
-Pentru modul vocal: apasă pe iconița de microfon, vorbește, iar mesajul se
-transcrie automat și se trimite ca întrebare. Pentru audio: după o
-recomandare, apasă „Ascultă” în fișa cărții din stânga. Pentru copertă:
-apasă „Generează copertă” în aceeași fișă.
 
 ---
 
